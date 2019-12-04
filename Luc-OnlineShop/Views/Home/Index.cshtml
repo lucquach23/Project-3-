@@ -1,0 +1,188 @@
+﻿@using Model.EF
+
+@model IEnumerable<Model.EF.Product>
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var listSlides = (List<Model.EF.Slide>)ViewBag.slideList;
+	var listttR = (List<Model.EF.Slide>)ViewBag.slideR;
+
+	var listNew = (List<Model.EF.Product>)ViewBag.listNewProduct;
+	var listSale = (List<Model.EF.Product>)ViewBag.listSaleProduct;
+}
+
+<div id="fwslider">
+	<div class="slider_container">
+		@foreach (var sl in listSlides)
+		{
+			<div class="slide">
+				<img src="@sl.Image" alt="" />
+				<div class="slide_content">
+					<div class="slide_content_wrap">
+						<h4 class="title"></h4>
+						<p class="description"></p>
+					</div>
+				</div>
+			</div>
+		}
+		
+		
+		<!--/slide -->
+	</div>
+	<div class="timers"></div>
+	<div class="slidePrev"><span></span></div>
+	<div class="slideNext"><span></span></div>
+</div>
+<!--/slider -->
+<div class="main">
+	<div class="wrap">
+		<div class="section group">
+			<div class="cont span_2_of_3">
+				<h2 class="head">Featured Products</h2>
+@if (Model != null)
+{
+	for (int i = 0; i < (Model.Count<Product>() / 3); i++)
+	{
+		<div class="top-box">
+			@for (int f = 0; f < Model.Count<Product>(); f++)
+			{
+				Product sp = Model.ElementAtOrDefault<Product>(f);
+				if (f <= (i * 3) + 2 && f >= (i * 3))
+				{
+					var url = "/chi-tiet/"+sp.MetaTitle+"-" + sp.ID;
+					<div class="col_1_of_3 span_1_of_3">
+						<div class="inner_content clearfix">
+							<a href="@url">
+								<div class="product_image">
+									<img src="@sp.Image" alt="" />
+								</div>
+							</a>
+							<div class="price">
+								<div class="cart-left">
+									<p class="title">@sp.Name</p>
+									<div class="price1">
+										<span class="actual">@(sp.Price.HasValue ? sp.Price.Value.ToString("N0") : "Liên hệ") VNĐ</span>
+									</div>
+								</div>
+								<a href="them-gio-hang?productID=@sp.ID&quantity=1">
+									<i style="color:#44bd32; font-size:46px" class="fas fa-cart-arrow-down"></i>
+								</a>
+								@*<a href="#"><i style="font-size:40px; color:#81ecec" class="fas fa-cart-arrow-down"></i></a>*@
+								<div class="clear"></div>
+							</div>
+						</div>
+
+					</div>
+				}
+
+			}
+			<div class="clear"></div>
+		</div>
+	}
+}			
+				<h2 class="head">Top sale</h2>
+				<div class="top-box1">
+					@foreach (var item in listSale)
+					{
+						var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+						<div class="col_1_of_3 span_1_of_3">
+							<a href="@url">
+								<div class="inner_content clearfix">
+									<div class="product_image">
+										<img src="@item.Image" alt="" />
+									</div>
+									<div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>
+									<div class="price">
+										<div class="cart-left">
+											<p class="title">@item.Name</p>
+											<div class="price1">
+												<span style="margin-right: 0%!important;" class="reducedfrom">@(item.Price.HasValue ? item.Price.Value.ToString("N0"):"Liên hệ")</span>
+												<span class="actual">@(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : "Liên hệ") VNĐ</span>
+											</div>
+										</div>
+										<a href="them-gio-hang?productID=@item.ID&quantity=1">
+											<i style="color:#44bd32; font-size:46px" class="fas fa-cart-arrow-down"></i>
+										</a>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</a>
+						</div>
+					}
+					
+					<div class="clear"></div>
+				</div>
+				<h2 class="head">New Products</h2>
+				<div class="section group">
+					@foreach (var item in listNew)
+					{
+						var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+						<div class="col_1_of_3 span_1_of_3">
+							<a href="@url">
+								<div class="inner_content clearfix">
+									<div class="product_image">
+										<img src="@item.Image" alt="" />
+									</div>
+									<div class="sale-box"><span class="on_sale title_shop">New</span></div>
+									<div class="price">
+										<div class="cart-left">
+											<p class="title">@item.Name</p>
+											<div class="price1">
+												<span class="actual">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")VNĐ</span>
+											</div>
+										</div>
+										<a href="them-gio-hang?productID=@item.ID&quantity=1">
+											<i style="color:#44bd32; font-size:46px" class="fas fa-cart-arrow-down"></i>
+										</a>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</a>
+						</div>
+					}
+					
+					
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div style="margin: 9.7% 0 1% 2.6%!important;" class="rsidebar span_1_of_left">
+				<div class="top-border"> </div>
+				<div class="border">
+					<link href="/Assets/Client/css/default.css" rel="stylesheet" type="text/css" media="all" />
+					<link href="/Assets/Client/css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" />
+					<script src="/Assets/Client/js/jquery.nivo.slider.js"></script>
+					<script type="text/javascript">
+				    $(window).load(function() {
+				        $('#slider').nivoSlider();
+				    });
+					</script>
+					<div class="slider-wrapper theme-default">
+						<div id="slider" class="nivoSlider">
+							@foreach (var sr in listttR)
+							{
+								<img  src="@sr.Image" alt="" />
+							}
+							
+						</div>-	
+					</div>
+					@*<div class="btn"><a style="top:-46px!important;padding: 3px 12px!important;" href="single.html">Check it Out</a></div>*@
+				</div>
+				<div class="top-border"> </div>
+				<div class="sidebar-bottom">
+					<h2 class="m_1">Newsletters<br> Signup</h2>
+					<p class="m_text">Lorem ipsum dolor sit amet, consectetuer</p>
+					<div class="subscribe">
+						<form>
+							<input name="userName" type="text" class="textbox">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+

@@ -1,0 +1,120 @@
+﻿@model Model.EF.Contact
+@{
+	ViewBag.Title = "Liên hệ";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+	#mapCanvas {
+		height: 500px;
+		width: 500px;
+	}
+</style>
+@section jsFooter{
+
+	@*<script>
+
+
+		function initMap() {
+			var uluru = { lat: 20.942203, lng: 106.059878 };
+			var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+				zoom: 4,
+				center: uluru
+			});
+
+			var contentString ='@Html.Raw(Model.Content)';
+			
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString
+			});
+
+			var marker = new google.maps.Marker({
+				position: uluru,
+				map: map,
+				title: 'Địa chỉ'
+			});
+			marker.addListener('click', function () {
+				infowindow.open(map, marker);
+			});
+		}
+		google.maps.event.addDomListener(window, 'load', initMap);
+	</script>*@
+	@*<script src="https://maps.googleapis.com/maps/api/js"></script>*@
+}
+@*<div class="main">
+	<div class="content">
+		<div class="section group">
+			<div class="col span_2_of_3">
+				<div class="contact-form">
+
+					<h2>Thông tin liên hệ</h2>
+					@Html.Raw(Model.Content)
+					<form>
+						<div>
+							<span><lable>Name</lable></span>
+							<span><input type="text" class="textbox"></span>
+						</div>
+						<div>
+							<span><lable>Email</lable></span>
+							<span><input type="text" class="textbox"></span>
+						</div>
+						<div>
+							<span><lable>Tên công ty</lable></span>
+							<span><input type="text" class="textbox"></span>
+						</div>
+						<div>
+							<span><lable>Subject</lable></span>
+							<span><textarea></textarea></span>
+						</div>
+						<div>
+							<span><input type="submit" value="Gửi" /></span>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="col span_1_of_3">
+				<div class="contact_info">
+					<h2>Tìm chúng tôi ở đây</h2>
+					<div class="map" id="mapCanvas">
+						<iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29812.43155400795!2d106.05404109999999!3d20.930258200000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a30555555555%3A0x39a8acd006ab8e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgVGh14bqtdCBIxrBuZyBZw6puLCBDxqEgc-G7nyAy!5e0!3m2!1svi!2s!4v1575298712845!5m2!1svi!2s"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">Xem bản đồ lớn hơn</a></small>
+					</div>
+				</div>
+				<div class="company_address">
+					<h3>Thông tin liên hệ:</h3>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+					<p>sdf</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>*@
+<div class="container-fluid padding">
+	<div class="row padding">
+		<div class="col-sm-12 col-lg-6">
+			<h2 class="display-2">Our vision</h2>
+			<p>
+				Bộ Công an truy nã Đào Thị Hương Lan, nguyên Giám đốc Sở Tài chính TP HCM, sau khi khởi tố nhưng phát hiện bà này không còn ở quận 2, TP HCM.
+			</p>
+			<p>
+				Joshua Wong, thủ lĩnh 22 tuổi của phong trào biểu tình "ô dù" Hong Kong, bị bắt tại sân bay sáng nay khi vừa trở về từ Đài Loan.
+			</p>
+			<br>
+		</div>
+		<div class="col-lg-6">
+			<iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29812.43155400795!2d106.05404109999999!3d20.930258200000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a30555555555%3A0x39a8acd006ab8e69!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgUGjhuqFtIEvhu7kgVGh14bqtdCBIxrBuZyBZw6puLCBDxqEgc-G7nyAy!5e0!3m2!1svi!2s!4v1575298712845!5m2!1svi!2s"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">Xem bản đồ lớn hơn</a></small>
+		</div>
+	</div>
+	<hr class="my-4">
+</div>

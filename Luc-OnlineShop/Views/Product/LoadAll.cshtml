@@ -1,0 +1,102 @@
+﻿@using Model.EF
+@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "LoadAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="main">
+	<div class="wrap">
+		<div style="display:flex!important" class="">
+			
+			<div style="width:95%">
+				<div style="display:flex;">
+					<h2 style="margin-right: 85px;" class="head">Danh sách sản phẩm</h2>
+					@using (Html.BeginForm("LoadAll", "Product", FormMethod.Get))
+					{
+						<div class="row">
+							<div class="" style="padding-bottom:20px;padding-top:10px;display:flex">
+								
+									<input style="width: 235px;" type="text" name="searchString" value="@ViewBag.SearchString" />
+																
+									<button style="width: 73px;height: 30px;" type="submit">Search</button>
+
+								
+
+							</div>
+						</div>
+					}
+				</div>
+				
+				@foreach (var sp in Model)
+				{
+					var url = "/chi-tiet/" + sp.MetaTitle + "-" + sp.ID;
+					<div style="margin-bottom: 0%!important;" class="top-box">
+						<div style="margin: 10px!important;" class="col_1_of_3 span_1_of_3">
+							<a href="@url">
+								<div class="inner_content clearfix">
+									<div class="product_image">
+										<img src="@sp.Image" alt="" />
+									</div>
+									<div class="price">
+										<div class="cart-left">
+											<p class="title">Laptop @sp.Name</p>
+											<div class="price1">
+												<span class="actual">@(sp.Price.HasValue?sp.Price.Value.ToString("N0"):"Liên hệ") VNĐ</span>
+											</div>
+										</div>
+										<a href="them-gio-hang?productID=@sp.ID&quantity=1">
+											<i style="color:#44bd32; font-size:46px" class="fas fa-cart-arrow-down"></i>
+										</a>
+										
+										
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					
+				}
+			</div>
+			@*<div>
+				<h4>Price</h4>
+				<form>
+					<input name="gioitinh" type="radio" value="Nam" /> 8M ~ 10M<br />
+					<input name="gioitinh" type="radio" value="Nữ" /> 10M ~ 15M<br />
+					<input name="gioitinh" type="radio" value="Khác" /> 15M ~ 20M<br />
+					<input name="gioitinh" type="radio" value="Khác" /> >20M
+				</form>
+				<h4>Colors</h4>
+				<ul class="color-list">
+					<li><a href="#"> <span class="color1 colorl"> </span><p class="red">Red</p></a></li>
+					<li><a href="#"> <span class="color2 colorl"> </span><p class="red">Green</p></a></li>
+					<li><a href="#"> <span class="color3 colorl"> </span><p class="red">Blue</p></a></li>
+					<li><a href="#"> <span class="color4 colorl"> </span><p class="red">Yellow</p></a></li>
+					<li><a href="#"> <span class="color5 colorl"> </span><p class="red">Violet</p></a></li>
+					<li><a href="#"> <span class="color6 colorl"> </span><p class="red">Orange</p></a></li>
+					<li><a href="#"> <span class="color7 colorl"> </span><p class="red">Gray</p></a></li>
+				</ul>
+				<style>
+					.colorl {
+						border-radius: 50%;
+					}
+				</style>
+			</div>*@
+				
+			</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+
+	@Html.PagedListPager(Model, page => Url.Action("LoadAll", new { page, @searchString = @ViewBag.SearchString }))
+<style>
+	.pagination-container{
+		padding-left:23rem!important;
+		
+	}
+	
+</style>

@@ -1,0 +1,108 @@
+﻿<html>
+<head>
+	<title>ASUS - Vietnamese</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all">
+	<link href="/Assets/Client/css/form.css" rel="stylesheet" type="text/css" media="all">
+	@*<link href="http://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet" type="text/css">*@
+	<script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	<script type="text/javascript" src="/Assets/Client/js/jquery1.min.js"></script>
+	<!-- start menu -->
+	<link href="/Assets/Client/css/megamenu.css" rel="stylesheet" type="text/css" media="all">
+	<script type="text/javascript" src="/Assets/Client/js/megamenu.js"></script>
+	<link rel="shortcut icon" type="image/png" href="/Assets/Client/images/favicon.png" />
+	<!--start slider -->
+	<link rel="stylesheet" href="/Assets/Client/css/fwslider.css" media="all">
+	<script src="/Assets/Client/js/jquery-ui.min.js"></script>
+	<script src="/Assets/Client/js/css3-mediaqueries.js"></script>
+	<script src="/Assets/Client/js/fwslider.js"></script>
+	<!--end slider -->
+	<link rel="stylesheet" href="/Assets/Client/css/etalage.css">
+	<link href="~/Assets/Client/fontawe/css/all.css" rel="stylesheet" />
+	<link href="~/Assets/Client/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Assets/PagedList.css" rel="stylesheet" />
+
+	<script src="/Assets/Client/js/jquery.easydropdown.js"></script>
+	<script src="/Assets/Client/js/slides.min.jquery.js"></script>
+	<script src="/Assets/Client/js/jquery.etalage.min.js"></script>
+	@*<script src="~/Assets/Client/js/bootstrap.min.js"></script>*@	
+	<script src="~/Assets/Client/fontawe/js/all.js"></script>
+
+	<script>
+			jQuery(document).ready(function($){
+
+				$('#etalage').etalage({
+					thumb_image_width: 360,
+					thumb_image_height: 360,
+					source_image_width: 900,
+					source_image_height: 900,
+					show_hint: true,
+					click_callback: function(image_anchor, instance_id){
+						alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+					}
+				});
+
+			});
+	</script>
+	<script>
+		$(function(){
+			$('#products').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				effect: 'slide, fade',
+				crossfade: true,
+				slideSpeed: 350,
+				fadeSpeed: 500,
+				generateNextPrev: true,
+				generatePagination: false
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div style="height: 41px;" class="header-top">
+		<div class="wrap">
+			<div class="header-top-left">
+				<div class="box">
+					
+
+				</div>
+				<div class="box1">
+					<marquee style="color: #f5f6fa;z-index: 9999;width: 231px;">Hotline: 0 337 1066 94</marquee>				</div>
+				<div class="clear"></div>
+			</div>
+			@{ Html.RenderAction("TopMenu", "Home");}
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div style="z-index:999999999" id="navsroll" class="header-bottom">
+		<div style="display:inline;" class="wrap">
+			<div class="header-bottom-left">
+				<div class="logo">
+					<a href="Home/Index"><img style="margin-top: 14px;margin-left: 87px;" src="/Assets/Client/images/asus.png" alt=""></a>
+				</div>
+				@{ Html.RenderAction("MainMenu", "Home");}
+			</div>
+			<div class="header-bottom-right">
+				@*<div class="search">
+					<input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					<input type="submit" value="Subscribe" id="submit" name="submit">
+					<div id="response"> </div>
+				</div>*@
+				@{ Html.RenderAction("HeaderCart", "Home");}
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	@RenderBody()
+	<div class="footer">
+		@{Html.RenderAction("Footer", "Home"); }
+	</div>
+	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+	@RenderSection("jsFooter", required: false);
+	@*<script src="/Assets/Client/js/cartController.js"></script>*@
+</body>
+</html>

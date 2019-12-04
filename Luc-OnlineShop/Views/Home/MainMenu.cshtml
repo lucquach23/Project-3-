@@ -1,0 +1,12 @@
+﻿@model List<Model.EF.Menu>
+
+
+<div class="menu">
+	<ul class="megamenu skyblue">
+		@foreach (var item in Model)
+		{
+			<li style="display: inline-block;"><a class="" href="@item.Link">@item.Text</a></li>
+		}
+	
+	</ul>
+</div>

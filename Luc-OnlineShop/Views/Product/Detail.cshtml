@@ -1,0 +1,103 @@
+﻿@model Model.EF.Product
+@{
+	ViewBag.Title = Model.Name;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var listRelateProduct = (List<Model.EF.Product>)ViewBag.RelateProduct;
+}
+
+<div class="mens">
+	<div class="main">
+		<div class="wrap">
+			<ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Chi tiết </a> / <a href="#"> @Model.Name</a></ul>
+			<div class="cont span_2_of_3">
+				<div class="grid images_3_of_2">
+					<ul id="etalage" class="etalage" style="display: block; width: 362px; height: 486px;">
+						<li>
+							<img style="display: inline; width: 360px; height: 360px; opacity: 1;" src="@Model.Image" />
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="desc1 span_3_of_2">
+					<h3 class="m_3">LAPTOP @Model.Name</h3>
+					<p class="m_5">@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ") VNĐ</p>
+					<div class="btn_form">
+						
+						@*<form>
+							<input type="submit" value="buy" title="">
+						</form>*@
+						<a href="them-hang?productID=@Model.ID&quantity=1">
+							<i style="color:#44bd32; font-size:46px" class="fas fa-cart-arrow-down"></i>
+						</a>
+					</div>
+					<span class="m_link"> </span>
+					<div>
+						<p>
+							Model: Inspiron 3567 (N3567S) - P63F002-Mã hàng: 602527<br />
+							Bảo hành: 12 tháng<br />
+						</p>
+						<br />
+						<i><b style="color:#2ecc71">CÒN HÀNG</b></i><br />
+						<br />
+						<p>
+							<i style="color:#f9ca24">Khuyến mại trị giá 310.000₫. Áp dụng đến 01/11/2019 </i><br />
+						</p>
+
+						• Tặng Phần mềm diệt Virus Kaspersky<br />
+						<br />
+						• Tặng gói giao hàng + Cài đặt miễn phí trị giá 150.000đ<br /><br />
+						• 1 đổi 1 trong 45 ngày (Nếu lỗi kỹ thuật)<br /><br />
+						• Trả trước 0đ + Trả góp 0% lãi suất khi TT qua thẻ tín dụng.
+					</div>
+
+					<div class="social-media">
+						<ul>
+
+							<li> <span class="simptip-position-bottom simptip-movable" data-tooltip="Google"><a href="#" target="_blank"> </a></span></li>
+							<li><span class="simptip-position-bottom simptip-movable" data-tooltip="Facebook"><a href="#" target="_blank"> </a></span></li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="toogle">
+					<h3 class="m_3" style="margin-top: -33px;top: -25px;">
+						Thông số kỹ thuật
+					</h3>
+					@Html.Raw(Model.Detail)
+					<style>
+						.clth {
+							padding-top: 20px !important;
+							padding-left: 120px !important;
+						}
+					</style>
+
+
+				</div>
+
+
+
+
+				
+				<h3 class="m_3">Có thể bạn quan tâm</h3>
+				<div class="nbs-flexisel-container">
+					<div class="nbs-flexisel-inner">
+						<ul id="flexiselDemo3" class="nbs-flexisel-ul" style="left: -181.6px; display: block;">
+							@{ Html.RenderAction("RelateP", "Product");}
+							
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="rsingle span_1_of_single">
+
+
+
+				
+				<script src="../Assets/Client/js/jquery.easydropdown.js"></script>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>

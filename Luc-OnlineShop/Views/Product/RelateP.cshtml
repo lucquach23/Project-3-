@@ -1,0 +1,6 @@
+﻿@model List<Model.EF.Product>
+
+@foreach (var item in Model)
+	{
+		<li class="nbs-flexisel-item" style="width: 181.6px;"><img src="@item.Image"><a href="#">@item.Name</a><p>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Liên hệ")</p></li>
+	}

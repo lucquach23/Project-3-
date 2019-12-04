@@ -1,0 +1,69 @@
+﻿@model List<Luc_OnlineShop.Models.CartItem>
+@{
+	ViewBag.Title = "Thanh toán";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+	<script src="/Assets/Client/js/cartController.js"></script>
+}
+@if (Model.Count > 0)
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Mã SP</td>
+				<td>Tên SP</td>
+				<td>Ảnh</td>
+				<td>Số Lượng</td>
+				<td>Đơn giá</td>
+				<td>Thành tiền</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Product.ID</td>
+					<td>@item.Product.Name</td>
+					<td><img src="@item.Product.Image" width="100" /></td>
+					<td><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+					<td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+					<td>@((item.Product.Price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+					<td><a data-id="@item.Product.ID" class="btn-delete" href="#"><img style="width:30px" src="~/Assets/Client/images/iconxoa.png" /></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+<div class="section group">
+	<div class="col-md-6">
+		@using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+		{
+			<div class="form-group">
+				<label>Người nhận: </label>
+				<input  id="nguoinhan" name="shipName" class="form-control" />
+			</div>
+				<div class="form-group">
+					<label>Điện thoại: </label>
+					<input  id="dienthoai" name="mobie" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Địa chỉ: </label>
+					<input  id="diachi" name="address" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Email: </label>
+					<input  id="emaicus" name="email" class="form-control" />
+				</div>
+				
+				<button type="submit" id="dhn" disabled="disabled" class="btn btn-success">Đặt hàng nhanh</button>
+				<button type="button" class="btn btn-success"  onclick="check()">Check</button>
+				<script src="~/Assets/Client/js/checkform.js"></script>
+
+		}
+
+				
+</div>
+</div>

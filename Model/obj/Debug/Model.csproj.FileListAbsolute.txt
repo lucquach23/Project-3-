@@ -1,0 +1,14 @@
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\Model.dll.config
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\Model.dll
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\Model.pdb
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\EntityFramework.dll
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\EntityFramework.xml
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\ASP.NET\Luc-OnlineShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+F:\ASP.NET\Luc-OnlineShop\Model\obj\Debug\Model.dll
+F:\ASP.NET\Luc-OnlineShop\Model\obj\Debug\Model.pdb
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\PagedList.dll
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\PagedList.Mvc.dll
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\PagedList.xml
+F:\ASP.NET\Luc-OnlineShop\Model\bin\Debug\PagedList.Mvc.xml

@@ -1,0 +1,56 @@
+﻿@model List<Luc_OnlineShop.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+	
+<script src="/Assets/Client/js/cartController.js"></script>
+	}
+@if(Model.Count>0)
+{ 
+<table class="table">
+	<thead>
+		<tr>
+			<td>Mã SP</td>
+			<td>Tên SP</td>
+			<td>Ảnh</td>
+			<td>Số Lượng</td>
+			<td>Đơn giá</td>
+			<td>Thành tiền</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Product.ID</td>
+				<td>@item.Product.Name</td>
+				<td><img src="@item.Product.Image" width="100"/></td>
+				<td><input type="text" class="txtQuantity" data-id="@item.Product.ID" value="@item.Quantity" /></td>
+				<td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+				<td>@((item.Product.Price.GetValueOrDefault(0) *item.Quantity).ToString("N0"))</td>
+				<td><a data-id="@item.Product.ID" class="btn-delete" href="#"><img style="width:30px" src="~/Assets/Client/images/iconxoa.png" /></a></td>
+			</tr>
+		}	
+	</tbody>
+</table>
+	
+
+	<button id="btnContinue" type="button" class="btn btn-primary">Tiếp tục mua hàng</button>
+	<button id="btnUpdate" type="button" class="btn btn-secondary">Cập nhật</button>	
+	<button id="btnDeleteAll" type="button" class="btn btn-danger">Xóa hết</button>
+	<button id="btnPayment" type="button" class="btn btn-success">Thanh toán</button>
+	@*<style>
+		.btn{
+		border:green!important;
+		}
+	</style>*@
+
+}
+else
+{
+	<span style="bottom: 21px;" class="alert alert-danger">Không có sản phẩm nào trong giỏ hàng</span>
+}
+

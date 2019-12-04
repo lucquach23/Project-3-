@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luc-OnlineShop", "Luc-OnlineShop\Luc-OnlineShop.csproj", "{A92D8C8B-1ADD-4CDE-AC35-86561D067D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{976012E2-F0AB-4E33-AE37-53C330B02577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{A698BD6E-3548-4A5A-9AE8-B15EBF21DAC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A92D8C8B-1ADD-4CDE-AC35-86561D067D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92D8C8B-1ADD-4CDE-AC35-86561D067D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92D8C8B-1ADD-4CDE-AC35-86561D067D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92D8C8B-1ADD-4CDE-AC35-86561D067D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976012E2-F0AB-4E33-AE37-53C330B02577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976012E2-F0AB-4E33-AE37-53C330B02577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976012E2-F0AB-4E33-AE37-53C330B02577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976012E2-F0AB-4E33-AE37-53C330B02577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A698BD6E-3548-4A5A-9AE8-B15EBF21DAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A698BD6E-3548-4A5A-9AE8-B15EBF21DAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A698BD6E-3548-4A5A-9AE8-B15EBF21DAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A698BD6E-3548-4A5A-9AE8-B15EBF21DAC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

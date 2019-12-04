@@ -1,0 +1,5 @@
+F:\ASP.NET\Luc-OnlineShop\Common\bin\Debug\Common.dll
+F:\ASP.NET\Luc-OnlineShop\Common\bin\Debug\Common.pdb
+F:\ASP.NET\Luc-OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\ASP.NET\Luc-OnlineShop\Common\obj\Debug\Common.dll
+F:\ASP.NET\Luc-OnlineShop\Common\obj\Debug\Common.pdb
