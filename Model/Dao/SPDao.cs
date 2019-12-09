@@ -21,6 +21,13 @@ namespace Model.Dao
             db.SaveChanges();
             return sp.ID;
         }
+        public string CreateMetaTile(string name)
+        {
+            name = String.Join("", name.Split('@', ',', '.', ';', '\'', '-', '?', '!')).ToLower().Trim();
+            name = name.Replace("  ", " ");
+           
+            return name.Replace(" ", "-");
+        }
         public bool Update(Product entity)
         {
             try
@@ -31,7 +38,8 @@ namespace Model.Dao
                 sp.Image = entity.Image;
                 sp.Price = entity.Price;
                 sp.PromotionPrice = entity.PromotionPrice;
-                sp.CreateBy = entity.CreateBy;
+                sp.Quantity = entity.Quantity;
+                sp.MetaTitle = CreateMetaTile(entity.Name);
                 sp.Processor = entity.Processor;
                 sp.OperatingSystem = entity.OperatingSystem;
                 sp.Memory = entity.Memory;

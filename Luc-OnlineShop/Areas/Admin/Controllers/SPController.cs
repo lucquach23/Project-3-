@@ -31,7 +31,7 @@ namespace Luc_OnlineShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new SPDao();
-
+                sp.MetaTitle = dao.CreateMetaTile(sp.Name);
                 long id = dao.Insert(sp);
 
                 if (id > 0)

@@ -129,9 +129,11 @@ namespace Luc_OnlineShop.Controllers
                 kh.DiaChi = address;
                 kh.Email = email;
             dh.Email = email;
+            dh.DiaChi = address;
                 new KhachHangDao().Insert(kh);
                 order.CreateDate = DateTime.Now;
             dh.NgayGuiDon = order.CreateDate;
+            order.ShipName = shipName;
                 order.ShipAddress = address;
                 order.ShipMobie = mobie;
                 order.ShipEmail = email;

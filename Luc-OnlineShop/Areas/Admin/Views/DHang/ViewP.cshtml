@@ -1,0 +1,32 @@
+﻿@model List<Model.ViewModal.ViewModelProduct>
+@{
+    ViewBag.Title = "ViewP";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+	chi tiết đơn hàng
+}
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Tên</th>
+			<th scope="col">Ảnh </th>
+			<th scope="col">Số Lượng</th>
+			<th scope="col">Giá</th>
+		</tr>		
+	</thead>
+	<tbody>
+		@foreach (var i in Model)
+		{			
+			<tr>
+				<th scope="row">@i.sp.Name</th>
+				<td><img style="width:50px" src="@i.sp.Image" /></td>
+				<td>@i.sp.Quantity</td>
+				<td>@i.sp.Price</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+

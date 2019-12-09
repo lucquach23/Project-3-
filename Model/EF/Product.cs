@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -30,8 +30,8 @@ namespace Model.EF
         public string MoreImage { get; set; }
 
         public decimal? Price { get; set; }
-            //public decimal? Price { get; set; }
 
+        [Display(Name="Promotion")]
         public decimal? PromotionPrice { get; set; }
 
         public bool? IncludeVAT { get; set; }
@@ -74,6 +74,7 @@ namespace Model.EF
         public string Processor { get; set; }
 
         [StringLength(350)]
+        [Display(Name = "System")]
         public string OperatingSystem { get; set; }
 
         [StringLength(310)]
@@ -92,6 +93,7 @@ namespace Model.EF
         public string Keyboard { get; set; }
 
         [StringLength(350)]
+        [Display(Name = "CardReader")]
         public string MemoryCardReader { get; set; }
 
         [StringLength(350)]

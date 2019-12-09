@@ -35,22 +35,86 @@ namespace Model.Dao
             db.SaveChanges();
         }
 
+        //public List<ViewModelProduct> ViewModelProduct(long idorder)
+        //{
+        //    var model = from spp in db.Products
+        //                join orde in db.OrderDetails
+        //                on spp.ID equals orde.ProductID
 
-        public IEnumerable<DonHangViewModal> get_View()
+        //                where orde.OrderID == idorder
+        //                select new ViewModelProduct()
+        //                {
+        //                    ordetail=orde,
+        //                    sp = spp
+
+
+        //                };
+        //    return model.ToList();
+        //}
+
+        public List<ViewModelProduct> getAllDetai()
         {
-            var model = from kh in db.KhachHangs
-                        join or in db.Orders on kh.ID equals or.CustomerID
-                        join orde in db.OrderDetails on or.ID equals orde.OrderID
-                        join p in db.Products on orde.ProductID equals p.ID
-                        select new DonHangViewModal()
+            var model = from spp in db.Products
+                        join orde in db.OrderDetails
+                        on spp.ID equals orde.ProductID
+
+
+                        select new ViewModelProduct()
                         {
-                            customer = kh,
-                            order = or,
-                            orderdetail = orde,
-                            product = p,
+                            ordetail = orde,
+                            sp = spp
+
+
+                        };
+            return model.ToList();
+        }
+
+
+
+        public List<Product> get_View(long idorder)
+        {
+            var model = from or in db.Orders
+                        join orde in db.OrderDetails
+                        on or.ID equals orde.OrderID
+
+                        where or.ID == idorder
+                        select new Product()
+                        {
+                            
+                            ID = orde.ProductID,
+                           
                             //tongTien = TongtienByID(orde.OrderID)
                         };
-            return model;
+            return model.ToList();
+        }
+        public List<Model.ViewModal.DHViewModel> getView(long idorder)
+        {
+            var model = from or in db.Orders
+                        join orde in db.OrderDetails
+                        on or.ID equals orde.OrderID
+                        join p in db.Products on orde.ProductID equals p.ID
+                        where or.ID == idorder && orde.ProductID==p.ID
+                        select new DHViewModel()
+                        {
+                            sp = p
+                        };
+            return model.ToList();
+        }
+        public Product get1_View(long idProduct)
+        {
+            return db.Products.Find(idProduct);
+            //var modell = from or in db.Orders
+            //            join orde in db.OrderDetails
+            //            on or.ID equals orde.OrderID
+
+            //            where or.ID == idorder
+            //            select new Product()
+            //            {
+            //                ID = orde.ProductID,
+
+            //                //tongTien = TongtienByID(orde.OrderID)
+            //            };
+            //return modell.OrderByDescending(x=>x.ID);
         }
         //public decimal TongtienByID(long id)
         //{
@@ -61,14 +125,14 @@ namespace Model.Dao
         //    }
         //    return tt;
         //}
-        public IEnumerable<DonHangViewModal> listDonHangPage(string searchString, int page , int pageSize)
-        {
-            var model = get_View();
-            if(!string.IsNullOrEmpty(searchString))
-            {
-                model=model.Where(x=>x.customer.TenKH.Contains(searchString));
-            }
-            return model.OrderBy(x => x.order.CreateDate).ToPagedList(page, pageSize);
-        }
+        //public IEnumerable<DonHangViewModal> listDonHangPage(string searchString, int page , int pageSize)
+        //{
+        //    var model = get_View();
+        //    if(!string.IsNullOrEmpty(searchString))
+        //    {
+        //        model=model.Where(x=>x.customer.TenKH.Contains(searchString));
+        //    }
+        //    return model.OrderBy(x => x.order.CreateDate).ToPagedList(page, pageSize);
+        //}
     }
 }

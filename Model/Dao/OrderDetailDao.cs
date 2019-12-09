@@ -27,5 +27,12 @@ namespace Model.Dao
                 return false;
             }
         }
+        //public List<ViewModal.ViewModelProduct> getDetail(long idorder)
+        //{
+            
+           
+        //}
+       
+            
     }
 }

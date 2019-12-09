@@ -1,12 +1,14 @@
-﻿@model PagedList.IPagedList<Model.ViewModal.DonHangViewModal>
+﻿@model PagedList.IPagedList<Model.EF.DonHang>
 @using PagedList.Mvc;
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+	var listD = (List<Model.ViewModal.ViewModelProduct>)ViewBag.showDetail;
 }
 @section header{
-	Danh sách Đơn hàng
-}
+	Danh sách đơn hàng
+	}
+
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -14,7 +16,7 @@
 				@*Tổng:	@Model.Count*@
 			</div>
 			<div class="panel-body">
-				@using (Html.BeginForm("Index", "DonHang", FormMethod.Get))
+				@using (Html.BeginForm("Index", "DHang", FormMethod.Get))
 				{
 					<div class="row">
 						<div class="col-lg-12" style="padding-bottom:20px;padding-top:10px;display:flex">
@@ -41,8 +43,9 @@
 								<th>Địa chỉ</th>
 								<th>Phone</th>
 								<th>Email</th>
-								@*<th>Tổng tiền</th>*@
+								<th>Tổng tiền</th>
 								<th>Ngày Đặt</th>
+								<th>Trạng thái</th>
 								<th>Chi tiết</th>
 							</tr>
 						</thead>
@@ -51,30 +54,33 @@
 
 							@foreach (var item in Model)
 							{
-								<tr id="row_@item.order.ID">
+								var url = "/chi-tiet-don-hang/" + item.OrderID;
+								<tr id="row_@item.CustomerID">
 									<td>
-										<a href="/Admin/SP/Edit/@item.order.ID">Xác thực</a>
+										<a href="/Admin/SP/Edit/@item.CustomerID">Xác thực</a>
 										|
-										@Ajax.ActionLink("Xóa", "Delete", new { @id = item.order.ID }, new AjaxOptions
+										@Ajax.ActionLink("Xóa", "Delete", new { @id = item.CustomerID }, new AjaxOptions
 								   {
 									   Confirm = "Bạn có muốn xóa bản ghi này?",
-									   OnComplete = "$('#row_" + @item.order.ID + "').remove()",
+									   OnComplete = "$('#row_" + @item.CustomerID + "').remove()",
 									   HttpMethod = "Delete"
 								   })
 									</td>
-									<td>@item.customer.TenKH</td>
-									<td>@item.customer.DiaChi</td>
-									<td>@item.customer.Sdt</td>
-									<td>@item.customer.Email</td>
-									@*<td>@item.tongTien</td>*@
-									<td>@item.order.CreateDate</td>
+									<td>@item.tenKH</td>
+									<td>@item.DiaChi</td>
+									<td>@item.Sdt</td>
+									<td>@item.Email</td>
+									<td>@item.TotalMoney</td>
+									<td>@item.NgayGuiDon</td>
+									<td>@item.Status</td>
 									<td>
+										@*<a href="@url">View Detail</a>*@
 										<div class="container">
 
-											<button type="button" id="myBtn-@item.order.ID">Chi Tiết</button>
+											<button type="button" id="myBtn-@item.OrderID">Chi Tiết</button>
 
 											<!-- Modal -->
-											<div class="modal fade" id="myModal-@item.order.ID" role="dialog">
+											<div class="modal fade" id="myModal-@item.OrderID" role="dialog">
 												<div class="modal-dialog">
 
 													<!-- Modal content-->
@@ -87,40 +93,37 @@
 															<table class="table table-striped">
 																<thead>
 																	<tr>
-																		
+
 																		<th scope="col">Tên</th>
 																		<th scope="col">Ảnh </th>
 																		<th scope="col">Số Lượng</th>
 																		<th scope="col">Giá</th>
 																		
+
 																	</tr>
-																	@*<tr>
-																		<th scope="col">Tổng </th>
-																	</tr>*@
+																	
 																</thead>
 																<tbody>
-																	@foreach (var i in Model)
-																	{
-																		decimal tt = 0;
-																		<tr>
-																			<th scope="row">@i.product.Name</th>
-																			<td><img style="width:50px" src="@i.product.Image"/></td>
-																			<td>@i.orderdetail.Quantity</td>
-																			<td>@i.product.Price</td>
+																	
+																		@foreach (var i in listD)
+																		{
 
-																		</tr>
-																			tt = tt + @i.product.Price.GetValueOrDefault(0);
+																			if (i.ordetail.OrderID == item.OrderID)
+																			{
+																				var thanhtien= i.ordetail.Price * i.ordetail.Quantity;
+																				
+																			<tr>
+																				<td>@i.sp.Name</td>
+																				<td><img src="@i.sp.Image" style="width:50px"/></td>
+																				<td>@i.ordetail.Quantity</td>
+																				<td>@thanhtien.GetValueOrDefault(0).ToString("N0")</td>
 																			
-																		<tr>@tt</tr>
-
-
-
-
-
+																			</tr>
+}
 
 																	}
-																	
-																	
+
+
 																</tbody>
 															</table>
 														</div>
@@ -135,12 +138,13 @@
 										</div>
 
 										<script>
-																		$(document).ready(function(){
-																		  $("#myBtn-@item.order.ID").click(function(){
-																			$("#myModal-@item.order.ID").modal();
-																		  });
-																		});
+												$(document).ready(function(){
+														$("#myBtn-@item.OrderID").click(function(){
+														$("#myModal-@item.OrderID").modal();
+														 });
+											});
 										</script>
+										
 									</td>
 
 								</tr>
@@ -155,7 +159,4 @@
 		</div>
 	</div>
 </div>
-
-
-
 

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\ContactDao.cs" />
+    <Compile Include="Dao\DHDao.cs" />
     <Compile Include="Dao\DonHangDao.cs" />
     <Compile Include="Dao\Footer.cs" />
     <Compile Include="Dao\KhachHangDao.cs" />
@@ -100,7 +101,8 @@
     <Compile Include="EF\Tag.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModal\DonHangViewModal.cs" />
+    <Compile Include="ViewModal\DHViewModel.cs" />
+    <Compile Include="ViewModal\ViewModelProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\PagedList.css" />

@@ -42,7 +42,7 @@
 								<th>Ảnh</th>
 								<th>Giá</th>
 								<th>Giá KM</th>
-
+								<th>Số lượng</th>
 								<th>Chi tiết</th>
 							</tr>
 						</thead>
@@ -67,10 +67,11 @@
 									<td><img style="width:50px" src="@item.Image" alt="" /></td>
 									<td>@item.Price</td>
 									<td>@item.PromotionPrice</td>
+									<td>@item.Quantity</td>
 									<td>
 										<div class="container">
 
-											<button type="button" id="myBtn-@item.ID">Open Modal</button>
+											<button type="button" id="myBtn-@item.ID">Xem chi tiết</button>
 
 											<!-- Modal -->
 											<div class="modal fade" id="myModal-@item.ID" role="dialog">

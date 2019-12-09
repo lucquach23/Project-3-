@@ -13,9 +13,23 @@ namespace Luc_OnlineShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+            name: "xemct",
+            url: "chi-tiet-don-hang/{idorder}",
+            defaults: new { controller = "DHang", action = "ViewP", id = UrlParameter.Optional },
+            namespaces: new[] { "Luc_OnlineShop.Areas.Admin.Controllers" }
+        );
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
             name: "Admin",
             url: "admin",
             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "Luc_OnlineShop.Areas.Admin.Controllers" }
+        );
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+            name: "dh",
+            url: "don-hang",
+            defaults: new { controller = "DH", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "Luc_OnlineShop.Areas.Admin.Controllers" }
         );
             routes.MapRoute(
@@ -78,6 +92,12 @@ namespace Luc_OnlineShop
          defaults: new { controller = "TinTuc", action = "Index", id = UrlParameter.Optional },
          namespaces: new[] { "Luc_OnlineShop.Controllers" }
      );
+            routes.MapRoute(
+        name: "Register",
+        url: "dang-ki",
+        defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
+        namespaces: new[] { "Luc_OnlineShop.Controllers" }
+    );
             routes.MapRoute(
          name: "Sản phẩm",
          url: "san-pham",

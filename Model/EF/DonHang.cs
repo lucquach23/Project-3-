@@ -19,11 +19,6 @@ namespace Model.EF
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomerID { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long IDOrderDetail { get; set; }
-
         [StringLength(250)]
         public string tenKH { get; set; }
 
@@ -39,5 +34,7 @@ namespace Model.EF
         public decimal? TotalMoney { get; set; }
 
         public DateTime? NgayGuiDon { get; set; }
+
+        public bool? Status { get; set; }
     }
 }
