@@ -17,10 +17,14 @@ namespace Luc_OnlineShop.Areas.Admin.Controllers
             ViewBag.showDetail = new DonHangDao().getAllDetai();
             return View(model);
         }
-        //public ActionResult ViewP(long idorder)
-        //{
-        //    var model = new DonHangDao().ViewModelProduct(idorder);
-        //    return View(model);
-        //}
+        [HttpPost]
+      public JsonResult ChangeStatus(long id)
+        {
+            var result = new DonHangDao().ChangeStatus(id);
+            return Json(new
+            {
+                status=result
+            });
+        }
     }
 }

@@ -40,12 +40,13 @@ namespace Luc_OnlineShop.Controllers
                 {
                     var user = new User();
                     user.UserName = model.UserName;
+                    user.Name = model.Name;
                     user.Password = model.Password;
                     user.Phone = model.Phone;
                     user.Email = model.Email;
                     user.Address = model.Address;
                     user.CreateDate = DateTime.Now;
-                    user.Status = true;
+                    user.Status = false;
                    var result= dao.Insert(user);
                     if(result>0)
                     {

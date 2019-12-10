@@ -9,6 +9,9 @@
 	Danh sách đơn hàng
 	}
 
+	
+
+	
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -24,7 +27,7 @@
 								<input style="width: 245px;" type="text" name="searchString" value="@ViewBag.SearchString" />
 							</div>
 							<div class="col-md-3">
-								<button type="submit">Tìm kiếm</button>
+								<button class="btn btn-success" type="submit">Tìm kiếm</button>
 
 							</div>
 
@@ -57,8 +60,8 @@
 								var url = "/chi-tiet-don-hang/" + item.OrderID;
 								<tr id="row_@item.CustomerID">
 									<td>
-										<a href="/Admin/SP/Edit/@item.CustomerID">Xác thực</a>
-										|
+										@*<a href="/Admin/SP/Edit/@item.CustomerID">Xác thực</a>
+										|*@
 										@Ajax.ActionLink("Xóa", "Delete", new { @id = item.CustomerID }, new AjaxOptions
 								   {
 									   Confirm = "Bạn có muốn xóa bản ghi này?",
@@ -72,12 +75,12 @@
 									<td>@item.Email</td>
 									<td>@item.TotalMoney</td>
 									<td>@item.NgayGuiDon</td>
-									<td>@item.Status</td>
+									<td><a class="btn-active" href="#" data-id="@item.OrderID">@(item.Status ? "Đã xác thực" : "Chưa xác thực")</a></td>
 									<td>
 										@*<a href="@url">View Detail</a>*@
 										<div class="container">
 
-											<button type="button" id="myBtn-@item.OrderID">Chi Tiết</button>
+											<button class="btn btn-success" type="button" id="myBtn-@item.OrderID">Chi Tiết</button>
 
 											<!-- Modal -->
 											<div class="modal fade" id="myModal-@item.OrderID" role="dialog">
@@ -159,4 +162,5 @@
 		</div>
 	</div>
 </div>
+
 

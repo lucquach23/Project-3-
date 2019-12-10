@@ -11,7 +11,7 @@ namespace Luc_OnlineShop.Areas.Admin.Controllers
     public class SPController : Controller
     {
 
-        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 12)
         {
             var dao = new SPDao();
             var model = dao.ListAllPaging(searchString, page, pageSize);

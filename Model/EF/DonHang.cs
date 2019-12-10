@@ -10,13 +10,9 @@ namespace Model.EF
     public partial class DonHang
     {
         [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long OrderID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomerID { get; set; }
 
         [StringLength(250)]
@@ -35,6 +31,6 @@ namespace Model.EF
 
         public DateTime? NgayGuiDon { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
     }
 }

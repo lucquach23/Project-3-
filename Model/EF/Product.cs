@@ -1,4 +1,4 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -31,7 +31,7 @@
 
         public decimal? Price { get; set; }
 
-        [Display(Name="Promotion")]
+        [Display(Name = "Promotion")]
         public decimal? PromotionPrice { get; set; }
 
         public bool? IncludeVAT { get; set; }

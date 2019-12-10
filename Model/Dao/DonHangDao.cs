@@ -69,7 +69,13 @@ namespace Model.Dao
             return model.ToList();
         }
 
-
+        public bool ChangeStatus(long id)
+        {
+            var dh = db.DonHangs.Find(id);
+            dh.Status = !dh.Status;
+            db.SaveChanges();
+            return !dh.Status;
+        }
 
         public List<Product> get_View(long idorder)
         {

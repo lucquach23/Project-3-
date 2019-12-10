@@ -88,6 +88,6 @@ namespace Luc_OnlineShop.Areas.Admin.Controllers
             new UserDao().Delete(id);
             return RedirectToAction("Index");
         }
-
+        
     }
 }

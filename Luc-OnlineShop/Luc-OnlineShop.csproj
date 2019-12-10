@@ -204,6 +204,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonNhapHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhachHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -232,6 +233,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Admin\anh\luc.jpg" />
+    <Content Include="Assets\Admin\anh\nganha.png" />
+    <Content Include="Assets\Admin\anh\truong.jpg" />
     <Content Include="Assets\Admin\css\sb-admin-2.css" />
     <Content Include="Assets\Admin\css\sb-admin-2.min.css" />
     <Content Include="Assets\Admin\js\demo\chart-area-demo.js" />
@@ -240,6 +243,7 @@
     <Content Include="Assets\Admin\js\demo\datatables-demo.js" />
     <Content Include="Assets\Admin\js\sb-admin-2.js" />
     <Content Include="Assets\Admin\js\sb-admin-2.min.js" />
+    <Content Include="Assets\Admin\js\userConfim.js" />
     <Content Include="Assets\Admin\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Assets\Admin\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Assets\Admin\vendor\bootstrap\js\bootstrap.js" />
@@ -2140,8 +2144,6 @@
     <Content Include="Areas\Admin\Views\SP\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SP\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SP\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DH\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DHang\ViewP.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -2191,6 +2193,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\DonNhapHang\" />
     <Folder Include="Views\NCC\" />
   </ItemGroup>
   <ItemGroup>

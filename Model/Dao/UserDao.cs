@@ -109,5 +109,6 @@ namespace Model.Dao
         {
             return db.Users.Count(x => x.Email == email) > 0;
         }
+       
     }
 }

@@ -33,7 +33,7 @@ namespace Luc_OnlineShop.Controllers
             var listRelate = new ProductDao().listRelate(6);
             return PartialView(listRelate);
         }
-        public ActionResult LoadAll(string searchString, int page = 1, int pageSize = 10)
+        public ActionResult LoadAll(string searchString, int page = 1, int pageSize = 12)
         {
             var model = new ProductDao().ListAllPaging(searchString,page, pageSize);
             ViewBag.SearchString = searchString;
